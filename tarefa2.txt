@@ -1,1 +1,170 @@
+atividade 2:
+Parte A:
+
+[root@localhost ~]# echo $$
+48
+[root@localhost ~]# cat /proc/48/status
+Name:   sh
+Umask:  0022
+State:  S (sleeping)
+Tgid:   48
+Ngid:   0
+Pid:    48
+PPid:   1
+TracerPid:      0
+Uid:    0       0       0       0
+Gid:    0       0       0       0
+FDSize: 256
+Groups:
+NStgid: 48
+NSpid:  48
+NSpgid: 48
+NSsid:  48
+VmPeak:     6204 kB
+VmSize:     6204 kB
+VmLck:         0 kB
+VmPin:         0 kB
+VmHWM:      2944 kB
+VmRSS:      2944 kB
+RssAnon:             564 kB
+RssFile:            2380 kB
+RssShmem:              0 kB
+VmData:      560 kB
+VmStk:       132 kB
+VmExe:      1024 kB
+VmLib:      1492 kB
+VmPTE:        36 kB
+VmSwap:        0 kB
+CoreDumping:    0
+Threads:        1
+SigQ:   0/1455
+SigPnd: 0000000000000000
+ShdPnd: 0000000000000000
+SigBlk: 0000000000010000
+SigIgn: 0000000000380004
+SigCgt: 000000004b817efb
+CapInh: 0000000000000000
+CapPrm: 0000003fffffffff
+CapEff: 0000003fffffffff
+CapBnd: 0000003fffffffff
+48 (sh) S 1 48 48 58624 83 4194304 1069 2943 24 155 117 314 22 181 20 0 1 0 2566
+ 6352896 736 18446744073709551615 183251935232 183252980200 274875375056 0 0 0 6
+5536 3670020 1266777851 1 0 0 17 0 0 0 0 0 0 183252985192 183253031388 183253073
+920 274875375468 274875375474 274875375474 274875375600 0
+[root@localhost ~]# ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  1.6  1.3   3136  2516 ?        S    10:30   0:06 /bin/sh /sbin/i
+root         2  0.0  0.0      0     0 ?        S    10:30   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        I    10:30   0:00 [kworker/0:0]
+root         4  0.0  0.0      0     0 ?        I<   10:30   0:00 [kworker/0:0H]
+root         5  0.0  0.0      0     0 ?        I    10:30   0:00 [kworker/u2:0]
+root         6  0.0  0.0      0     0 ?        I<   10:30   0:00 [mm_percpu_wq]
+root         7  0.0  0.0      0     0 ?        S    10:30   0:00 [ksoftirqd/0]
+root         8  0.0  0.0      0     0 ?        S    10:30   0:00 [kdevtmpfs]
+root         9  0.0  0.0      0     0 ?        I<   10:30   0:00 [netns]
+root        10  0.0  0.0      0     0 ?        S    10:30   0:00 [oom_reaper]
+root        11  0.0  0.0      0     0 ?        I<   10:30   0:00 [writeback]
+root        12  0.0  0.0      0     0 ?        I<   10:30   0:00 [crypto]
+root        13  0.0  0.0      0     0 ?        I<   10:30   0:00 [kblockd]
+root        14  0.0  0.0      0     0 ?        S    10:30   0:00 [kswapd0]
+root        15  0.0  0.0      0     0 ?        I    10:30   0:00 [kworker/0:1]
+root        32  0.0  0.0      0     0 ?        S    10:30   0:00 [khvcd]
+root        42  0.0  0.7   1944  1472 ?        Ss   10:30   0:00 dhcpcd
+root        47  0.0  0.0      0     0 ?        I    10:30   0:00 [kworker/u2:1]
+root        48  1.2  1.5   6204  2944 hvc0     Ss   10:30   0:04 sh -l
+root        84  5.0  1.4   8180  2740 hvc0     R+   10:36   0:00 ps aux
+
+
+Parte B:
+
+[root@localhost ~]# sleep 5m &
+[1] 85
+[root@localhost ~]# cat /proc/85/status
+Name:   sleep
+Umask:  0022
+State:  S (sleeping)
+Tgid:   85
+Ngid:   0
+Pid:    85
+PPid:   48
+TracerPid:      0
+Uid:    0       0       0       0
+Gid:    FDSize: 256
+Groups:
+NStgid: 85
+NSpid:  85
+NSpgid: 85
+NSsid:  48
+VmPeak:     4552 kB
+VmSize:     4552 kB
+VmLck:         0 kB
+VmPin:         0 kB
+VmHWM:      1500 kB
+VmRSS:      1500 kB
+RssAnon:              96 kB
+RssFile:            1404 kB
+RssShmem:              0 kB
+VmData:      176 kB
+VmStk:       132 kB
+VmExe:        28 kB
+VmLib:      1260 kB
+VmPTE:        32 kB
+VmSwap:        0 kB
+CoreDumping:    0
+Threads:        1
+SigQ:   0/1455
+SigPnd: 0000000000000000
+ShdPnd: 0000000000000000
+SigBlk: 0000000000000000
+0       0       0       0
+SigIgn: 0000000000000000
+SigCgt: 0000000000000000
+CapInh: 0000000000000000
+CapPrm: 0000003fffffffff
+CapEff: 0000003fffffffff
+CapBnd: 0000003fffffffff
+CapAmb: 0000000000000000
+NoNewPrivs:     0
+Cpus_allowed:   1
+Cpus_allowed_list:      0
+voluntary_ctxt_switches:        2
+nonvoluntary_ctxt_switches:     0
+[root@localhost ~]# ps -o pid,ppid,stat,cmd
+  PID  PPID STAT CMD
+   48     1 Ss   sh -l
+   85    48 S    sleep 5m
+   87    48 R+   ps -o pid,ppid,stat,cmd
+[root@localhost ~]# ps -o ppid,stat,cmd
+ PPID STAT CMD
+    1 Ss   sh -l
+   48 S    sleep 5m
+   48 R+   ps -o ppid,stat,cmd
+
+Parte C:
+
+Resposta 1: 
+
+Quando vimos o PPID do shell, apareceu que o pai dele é o processo 1. Depois vimos que o comando sleep foi criado pelo shell.
+
+Isso mostra que no Linux os processos funcionam como uma árvore de família:
+
+Existe um processo “pai” principal (PID 1).
+Esse pai cria outros processos.
+O shell cria novos processos quando rodamos comandos.
+
+Ou seja, todo processo nasce a partir de outro processo.
+
+Reposta 2:
+
+O processo sleep estava “dormindo” (estado S).
+Quando usamos kill, ele simplesmente desapareceu da lista de processos.
+
+Isso faz a gente perceber que um processo tem um ciclo de vida, igual a um ser vivo:
+
+Ele nasce (quando é criado)
+Ele vive (executa ou espera)
+Ele morre (quando termina ou é encerrado)
+
+Ou seja, processos não são permanentes — eles existem só enquanto estão sendo usados.
+
 
