@@ -1,1 +1,45 @@
+#Fase 1:
+6 linhas.
 
+Ele expandiu o programa do arquivo soma.c e colocou ele no terminal.
+
+wc -l soma.c:
+
+13 soma.c
+
+#Fase 2: 
+
+cat soma.c:
+
+/* soma.c
+ * Programa para a Atividade 4 — pipeline do gcc.
+ * Complete o código conforme as instruções da ficha.
+ */
+ 
+#include <stdio.h>
+ 
+int soma(int a, int b) { return a + b; }
+ 
+int main() {
+    printf("%d\n", soma(7, 5));
+    return 0;
+}
+
+#Fase 3:
+
+file soma.c:
+
+soma.o: ELF 64-bit LSB relocatable, UCB RISC-V, version 1 (SYSV), not stripped
+
+nm soma.c:
+
+0000000000000000 r .LC0
+0000000000000028 T main
+                 U printf
+0000000000000000 T soma
+
+#Fase 4:
+
+./soma:
+
+12.
